@@ -1,0 +1,27 @@
+apiVersion: container.gcp.crossplane.io/v1beta1
+kind: NodePool
+metadata:
+  name: crossplane-np
+spec:
+  forProvider:
+    autoscaling:
+      autoprovisioned: false
+      enabled: true
+      maxNodeCount: 15
+      minNodeCount: 3
+    cluster: crossplane-cluster-gcp
+    config:
+      machineType: e2-medium #change if required
+      diskSizeGb: 100 #change if required
+      diskType: pd-standard #change if required
+      imageType: COS_CONTAINERD 
+      labels:
+        owner: crossplane
+    initialNodeCount: 2 #change if required
+    maxPodsConstraint:
+        maxPodsPerNode: 110
+    locations:
+      - "us-central1-c" #change if required
+      - "us-east1-c"
+  providerConfigRef:
+         name: default-gcp
