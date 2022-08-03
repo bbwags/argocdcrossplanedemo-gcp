@@ -7,11 +7,11 @@ metadata:
      creation: crossplane
 spec:
   forProvider:
-    autocaling:
-      enableNodeAutoprovisioning:
-        maximum: 15
-        minimum: 3
-        resourceType: 
+    # autocaling:
+    #   enableNodeAutoprovisioning:
+    #     maximum: 15
+    #     minimum: 3
+    #     resourceType: 
     addonsConfig:
       networkPolicyConfig:
         disabled: false
